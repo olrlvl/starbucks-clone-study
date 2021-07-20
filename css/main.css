@@ -17,14 +17,14 @@ a {
 
 /* HEADER */
 header {
-  background-color: royalblue;
+  background-color: #f6f5f0;
+  border-bottom: 1px solid #c8c8c8;
 }
-
+/* 로고 , 서브메뉴 , 메뉴 */
 header .inner {
   width: 1100px;
-  height: 100px;
+  height: 120px;
   margin: 0 auto;
-  background-color: orange;
   position: relative;
 }
 
@@ -33,11 +33,14 @@ header .logo {
   position: absolute;
   top: 0;
   bottom: 0;
-  margin: auto auto; /* 브라우저가 자동으로 여백을 계산후 지정 지금 같은 경우 수직 중앙 정렬*/
-  display: none;
+  left: 0;
+  margin: auto; /* 브라우저가 자동으로 여백을 계산후 지정 지금 같은 경우 수직 중앙 정렬*/
 }
 
 header .sub-menu {
+  position: absolute;
+  top: 10px;
+  right: 0;
   display: flex;
 }
 
@@ -49,7 +52,8 @@ header .sub-menu ul.menu {
 header .sub-menu ul.menu li {
   position: relative;
 }
-
+/* 메뉴간 구분선  */
+/* :before – 실제 내용 바로 앞에서 생성되는 자식요소 */
 header .sub-menu ul.menu li::before {
   content: "";
   display: block;
@@ -61,18 +65,18 @@ header .sub-menu ul.menu li::before {
   bottom: 0;
   margin: auto 0;
 }
-
+/* 맨앞요소 구분선 없애기 */
 header .sub-menu ul.menu li:first-child:before {
   display: none;
 }
-
+/* 메뉴 링크 요소 스타일  */
 header .sub-menu ul.menu li a {
   font-size: 12px;
   padding: 11px 16px;
   display: block;
   color: #656565;
 }
-
+/* 메뉴 링크 요소 위에 마우스를 올렸을때  */
 header .sub-menu ul.menu li a:hover {
   color: #000;
 }
@@ -81,7 +85,7 @@ header .sub-menu .search {
   position: relative;
   height: 34px;
 }
-
+/* 인풋 박스 스타일 */
 header .sub-menu .search input {
   width: 36px;
   height: 34px;
@@ -95,12 +99,12 @@ header .sub-menu .search input {
   font-size: 12px;
   transition: width 0.4s;
 }
-
+/* 텍스트 인풋 박스 포커싱 하면 요소 너비 조정 */
 header .sub-menu .search input:focus {
   width: 190px;
   border-color: #669900;
 }
-
+/*  Search 아이콘 스타일  */
 header .sub-menu .search .material-icons {
   height: 24px;
   position: absolute;
@@ -108,4 +112,10 @@ header .sub-menu .search .material-icons {
   bottom: 0;
   right: 5px;
   margin: auto;
+  transition: 0.4s;
+}
+/* .search.focused 일치 선택자 : 두가지 요소가 true */
+/* 아이콘이 focused 상태일때 투명으로 만들기 */
+header .sub-menu .search.focused .material-icons {
+  opacity: 0;
 }
