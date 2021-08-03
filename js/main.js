@@ -72,3 +72,21 @@ new Swiper('.promotion .swiper-container', {
     nextEl: '.promotion .swiper-next'
   }
 })
+
+const promotionEl = document.querySelector('.promotion');
+const promotionToggleBtn = document.querySelector('.toggle-promotion');
+let isHidePromotion = false;
+console.log(`테스트 1 ${isHidePromotion}`)
+promotionToggleBtn.addEventListener('click', function() {
+  isHidePromotion = !isHidePromotion // 클릭할때마다 상태 부정
+  console.log(`테스트 2 ${isHidePromotion}`)
+  if (isHidePromotion) {
+    // 숨김 처리!
+    promotionEl.classList.add('hide');
+    console.log(`숨김 처리 ${isHidePromotion}`)
+  } else {
+    // 표시 처리!
+    promotionEl.classList.remove('hide');
+    console.log(`표시 처리 ${isHidePromotion}`)
+  }
+})
